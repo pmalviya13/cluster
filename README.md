@@ -1,8 +1,8 @@
----------------------------------------
-sudo su
+
+<p>sudo su
 passwd
-adduser <username>
-usermod -aG sudo <userame>
+adduser username
+usermod -aG sudo userame	</p>
 ---------------------------------------
 now login with new  user
 
