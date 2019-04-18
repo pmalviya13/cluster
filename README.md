@@ -1,10 +1,8 @@
 ---------------------------------------
----------------------------------------
 sudo su
 passwd
 adduser <username>
 usermod -aG sudo <userame>
----------------------------------------
 ---------------------------------------
 now login with new  user
 
@@ -12,15 +10,12 @@ sudo su
 apt-get update
 dpkg --configure -a
 apt-get upgrade
-
----------------------------------------
 ---------------------------------------
 IN CASE OF LOCK
 
 sudo rm /var/lib/apt/lists/lock
 sudo rm /var/cache/apt/archives/lock
 sudo rm /var/lib/dpkg/lock
----------------------------------------
 ---------------------------------------
 install and configuring ssh
 
@@ -30,19 +25,16 @@ sudo nano /etc/ssh/sshd_config
 	PasswordAuthentication=yes
 service ssh restart
 ---------------------------------------
----------------------------------------
 INSTALLING ntp
 
 apt-get install ntp
 update-rc.d ntp defaults
----------------------------------------
 ---------------------------------------
 ADD ALL NODES IN HOSTS FILE
 
 sudo nano /etc/hosts
 	<ip>	<hostname>
 
----------------------------------------
 ---------------------------------------
 CHANGING HOSTNAME
 
@@ -53,7 +45,6 @@ hostname -f
 sudo nano /etc/network/interfaces
 	NETWORKING=yes
 	HOSTNAME=<machine's_hostname>
----------------------------------------
 ---------------------------------------
 DISABLING FIREWALL
 
@@ -67,9 +58,8 @@ sudo iptables -P INPUT ACCEPT
 sudo iptables -P FORWARD ACCEPT
 sudo iptables -P OUTPUT ACCEPT
 ---------------------------------------
----------------------------------------
 apt install selinux-utils
-sudo nano /etc/selinux/config
+sudo nano /etc/selinux/semanage.conf
 	SELINUX=disabled
 setenforce 0
 umask 0022
@@ -77,7 +67,6 @@ umask
 echo umask 0022 >> /etc/profile
 /etc/init.d/apparmor stop
 sudo update-rc.d -f apparmor remove
----------------------------------------
 ---------------------------------------
 DISABLE ipv6
 
@@ -98,4 +87,8 @@ net.ipv6.conf.lo.disable_ipv6 = 1
 Repeat above “Step 3” and it will now report 1.
 
 ---------------------------------------
+apt-get update
+dpkg --configure -a
+apt-get upgrade
 ---------------------------------------
+
